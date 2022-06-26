@@ -18,6 +18,10 @@ pipeline {
                   stage('Flask.py') {
             steps {
                 script {
+		    bat 'pip install flask'
+		    bat 'pip install pymysql'
+		    bat 'pip install requests'
+		    bat 'pip install selenium'
                     bat 'start /min python Flask.py'
                     bat 'echo success Flask.py'
                 }
