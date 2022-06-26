@@ -46,7 +46,7 @@ pipeline {
 	stage('clean_environemnt') {
             steps {
                 script {
-                    bat 'start/min python3 clean_environemnt.py'
+                    bat 'start/min clean_environemnt.py'
                     bat 'echo success clean_environemnt-1'
                  }
             }
