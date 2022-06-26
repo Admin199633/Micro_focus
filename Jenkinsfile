@@ -75,7 +75,7 @@ pipeline {
             steps{
                 script{
 		    bat 'minikube start'
-		    bat 'kubectl create deployment "${BUILD_NUMBER}" --image="${BUILD_NUMBER}":latest'
+		    bat 'kubectl create deployment k8s --image="${BUILD_NUMBER}":latest'
 		    bat 'cd "${BUILD_NUMBER}"'
 		    bat	'helm install ./'
 		    bat 'helm repo update'
