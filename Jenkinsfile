@@ -67,9 +67,10 @@ pipeline {
 		    bat 'echo success Build'
                     docker.withRegistry('', registryCredential) {	
                     dockerImage.push() 	
+	       }
             }
          }     
-       }
+      }
 	stage ('Deploy HM'){
             steps{
                 script{
