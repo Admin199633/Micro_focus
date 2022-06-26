@@ -77,7 +77,7 @@ pipeline {
 		    bat 'minikube start'
 		    bat 'kubectl create deployment %BUILD_NUMBER% --image="%BUILD_NUMBER%":latest'
 		    bat 'cd micro'
-		    bat	'helm install ./'
+		    bat	'helm install %BUILD_NUMBER% ./'
 		    bat 'helm repo update'
 		    bat 'helm list --all'
 		    }  
