@@ -40,7 +40,6 @@ pipeline {
             steps {
                 script {
                     bat 'start Fronted_testing.py'
-		    bat 'call Fronted_testing.py'
                     bat 'echo success Fronted_testing'
                 }
             }
