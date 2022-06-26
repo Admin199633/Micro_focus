@@ -75,7 +75,9 @@ pipeline {
             steps{
                 script{
 		    bat 'minikube start'
-		    bat	'helm install project-4 --dry-run  --debug --set image.repostitory=photop/micro_focus,image.tag=${BUILD_NUMBER} project-helm'
+		    bat 'kubectl create deployment ${BUILD_NUMBER} --image=${BUILD_NUMBER}:latest'
+		    bat 'cd ${BUILD_NUMBER}
+		    bat	'helm install ./'
 		    bat 'helm repo update'
 		    bat 'helm list --all'
 		    }  
