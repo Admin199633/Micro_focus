@@ -48,7 +48,6 @@ pipeline {
             steps {
                 script {
                     bat 'start/min clean_environemnt.py'
-		    bat 'call clean_environemnt.py'
                     bat 'echo success clean_environemnt-1'
                  }
             }
