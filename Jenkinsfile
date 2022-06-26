@@ -18,7 +18,6 @@ pipeline {
                   stage('Flask.py') {
             steps {
                 script {
-		    bat 'echo "%BUILD_NUMBER%"'	 
 		    bat 'pip install flask'
 		    bat 'pip install pymysql'
 		    bat 'pip install requests'
@@ -76,8 +75,8 @@ pipeline {
             steps{
                 script{
 		    bat 'minikube start'
-		    bat 'kubectl create deployment k8s --image="${BUILD_NUMBER}":latest'
-		    bat 'cd "${BUILD_NUMBER}"'
+		    bat 'kubectl create deployment %BUILD_NUMBER% --image="%BUILD_NUMBER%":latest'
+		    bat 'cd "%BUILD_NUMBER%"'
 		    bat	'helm install ./'
 		    bat 'helm repo update'
 		    bat 'helm list --all'
