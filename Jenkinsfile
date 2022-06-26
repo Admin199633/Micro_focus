@@ -15,19 +15,15 @@ pipeline {
 		git branch: 'main', url: 'https://github.com/Admin199633/Main.git'
             }
         }
-                  stage('Flask.py') {
+                  stage('Build:Flask.py') {
             steps {
                 script {
-		    bat 'pip install flask'
-		    bat 'pip install pymysql'
-		    bat 'pip install requests'
-		    bat 'pip install selenium'
                     bat 'start /min python Flask.py'
                     bat 'echo success Flask.py'
                 }
             }
         }
-        stage('Backend_testing') {
+        stage('Test:Backend_testing') {
             steps {
                 script {
                     bat 'start Backend_testing.py'
@@ -36,7 +32,7 @@ pipeline {
                 }
             }
         }
-	stage('Fronted_testing') {
+	stage('Test:Fronted_testing') {
             steps {
                 script {
                     bat 'start Fronted_testing.py'
@@ -44,7 +40,7 @@ pipeline {
                 }
             }
         }
-	stage('clean_environemnt') {
+	stage('Test:clean_environemnt') {
             steps {
                 script {
                     bat 'start/min clean_environemnt.py'
@@ -52,7 +48,7 @@ pipeline {
                  }
             }
         }    
-	stage('Build Docker image - locally') {
+	stage('Depoly:Build Docker image - locally') {
             steps {
                 script{
                     bat "docker build -t \"$BUILD_NUMBER\" ."
@@ -60,7 +56,7 @@ pipeline {
                 }
             }
          }
-	stage('build and push image') {
+	stage('Deploy: build and push image') {
             steps {
                 script{
                     dockerImage = docker.build registry + ":$BUILD_NUMBER"
@@ -71,7 +67,7 @@ pipeline {
             }
          }     
       }
-	stage ('Deploy HM'){
+	stage ('Deploy&Operate HM'){
             steps{
                 script{
 		    bat 'minikube start'
