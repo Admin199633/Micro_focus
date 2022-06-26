@@ -1,0 +1,4 @@
+Flask>=1.1.2
+PyMySQL>=0.8.1,<0.9
+requests>=2.25.1
+python-dotenv
