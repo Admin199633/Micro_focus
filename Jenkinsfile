@@ -40,6 +40,7 @@ pipeline {
             steps {
                 script {
                     bat 'start Fronted_testing.py'
+		    bat 'call Fronted_testing.py'
                     bat 'echo success Fronted_testing'
                 }
             }
@@ -48,6 +49,7 @@ pipeline {
             steps {
                 script {
                     bat 'start/min clean_environemnt.py'
+		    bat 'call clean_environemnt.py'
                     bat 'echo success clean_environemnt-1'
                  }
             }
