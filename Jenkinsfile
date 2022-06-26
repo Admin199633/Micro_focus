@@ -18,6 +18,7 @@ pipeline {
                   stage('Flask.py') {
             steps {
                 script {
+		    bat 'echo "${BUILD_NUMBER}"'	 
 		    bat 'pip install flask'
 		    bat 'pip install pymysql'
 		    bat 'pip install requests'
