@@ -1,6 +1,6 @@
 from selenium import webdriver
 import pymysql
-driver = webdriver.Chrome(executable_path="https://github.com/photop33/Micro-Focus/blob/main/chromedriver.exe")
+driver = webdriver.Chrome(executable_path="https://github.com/Admin199633/Main/blob/main/chromedriver.exe")
 driver.get("http://localhost:5000/user/1")
 x=driver.find_element_by_xpath('/html/body/pre').text
 print(x)
