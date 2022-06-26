@@ -31,6 +31,7 @@ pipeline {
             steps {
                 script {
                     bat 'start Backend_testing.py'
+		    bat 'call Backend_testing.py'
                     bat 'echo success Backend_testing'
                 }
             }
