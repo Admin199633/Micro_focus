@@ -84,16 +84,5 @@ pipeline {
 		    }  
                 }
             }
-	stage ('Deploy HELM'){
-            steps{
-                script{
-                   bat """ start /min /b minikube service test-%BUILD_NUMBER% --url >  k8s_url-test.txt
-		   ping -n 10 127.0.0.1 
-                   (type  k8s_url-test.txt | findstr "^http") >  k8s_url.txt
-                    type k8s_url.txt """		   
-		    }  
-                }
-            }
-
         }
     }
