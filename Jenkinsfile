@@ -69,10 +69,10 @@ pipeline {
       }
 	stage('set version') { 	
             steps {	
-                bat "echo IMAGE_TAG=${BUILD_NUMBER} > .env"   
+                bat "echo ${BUILD_NUMBER} > .env"   
 			    bat "more .env"
 		            bat "echo tttttttttttttttttttt"
-		            bat 'echo .env'
+		            bat 'echo ${BUILD_NUMBER}'
 		            bat 'echo %IMAGE_TAG%'
 		            bat 'echo ${BUILD_NUMBER}'
 		            bat 'echo %{BUILD_NUMBER}%'	
