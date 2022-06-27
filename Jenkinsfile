@@ -78,7 +78,7 @@ pipeline {
                 script{
 		    bat 'minikube start'
 		    bat 'kubectl create deployment %BUILD_NUMBER% --image="%BUILD_NUMBER%":latest'
-		    bat 'helm install  test-%BUILD_NUMBER% ./micro --set image_tag=%BUILD_NUMBER%'
+		    bat 'helm install  test-%BUILD_NUMBER% ./micro --set image.tag=%BUILD_NUMBER%'
 		    bat 'helm repo update'
 		    bat 'helm list --all'
 		    }  
