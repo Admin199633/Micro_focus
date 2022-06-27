@@ -69,10 +69,10 @@ pipeline {
       }
 	stage('set version') { 	
             steps {	
-                bat "echo image_tag=${BUILD_NUMBER} > micro/.env" 
-		            bat 'set image_tag=${BUILD_NUMBER}'
-		bat 'more micro/.env'
-		bat 'echo micro/.env'
+                bat "echo image_tag=${BUILD_NUMBER} > .env" 
+		bat 'set image_tag=${BUILD_NUMBER}'
+		bat 'more .env'
+		bat 'echo .env'
 	
 	    }
          }
@@ -81,7 +81,7 @@ pipeline {
                 script{
 		    bat 'minikube start'
 		    bat 'kubectl create deployment %BUILD_NUMBER% --image="%BUILD_NUMBER%":latest'
-		    bat 'helm install  test-%BUILD_NUMBER% ./micro'
+		    bat 'helm install  test-%BUILD_NUMBER% ./micro --set image_tag=%BUILD_NUMBER%'
 		    bat 'helm repo update'
 		    bat 'helm list --all'
 		    }  
