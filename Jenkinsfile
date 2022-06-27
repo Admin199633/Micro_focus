@@ -72,6 +72,7 @@ pipeline {
                 bat "echo ${BUILD_NUMBER} > .env" 
 		            bat 'set image_tag=${BUILD_NUMBER}'
 		            bat '%image_tag%'	            
+		    	    bat 'echo %image_tag%'	
 			    bat "more .env"
 		            bat "echo tttttttttttttttttttt"
 		            bat 'echo ${BUILD_NUMBER}'
