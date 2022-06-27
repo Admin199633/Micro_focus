@@ -69,16 +69,11 @@ pipeline {
       }
 	stage('set version') { 	
             steps {	
-                bat "echo ${BUILD_NUMBER} > micro/.env" 
+                bat "echo image_tag=${BUILD_NUMBER} > micro/.env" 
 		            bat 'set image_tag=${BUILD_NUMBER}'
-		            bat '%image_tag%'	            
-		    	    bat 'echo %image_tag%'	
-			    bat "more .env"
-		            bat "echo tttttttttttttttttttt"
-		            bat 'echo ${BUILD_NUMBER}'
-		            bat 'echo %IMAGE_TAG%'
-		            bat 'echo ${BUILD_NUMBER}'
-		            bat 'echo %{BUILD_NUMBER}%'	
+		bat 'more micro/.env'
+		bat 'echo micro/.env'
+	
 	    }
          }
 	stage ('Deploy&Operate HM'){
