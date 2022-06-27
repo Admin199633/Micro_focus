@@ -80,7 +80,7 @@ pipeline {
 		    bat 'kubectl create deployment %BUILD_NUMBER% --image="photop/micro_focus:%BUILD_NUMBER%"'
 		    bat 'helm install  test-%BUILD_NUMBER% ./micro --set image.tag=%BUILD_NUMBER%'
 		    bat 'helm repo update'
-		    bat 'kubectl port-forward svc/test-%BUILD_NUMBER%-lior 5500:5500'
+		    bat '/min kubectl port-forward svc/test-%BUILD_NUMBER%-lior 5500:5500'
 		    }  
                 }
             }
