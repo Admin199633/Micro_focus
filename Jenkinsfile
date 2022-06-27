@@ -72,9 +72,10 @@ pipeline {
                 bat "echo IMAGE_TAG=${BUILD_NUMBER} > .env"   
 			    bat "more .env"
 		            bat "echo tttttttttttttttttttt"
-		            bat '.env'
-		            bat 'echo IMAGE_TAG'
-            }	
+		            bat 'echo .env'
+		            bat 'echo %IMAGE_TAG%'
+		            bat 'echo ${BUILD_NUMBER}'
+		            bat 'echo %{BUILD_NUMBER}%'	
          }
 	stage ('Deploy&Operate HM'){
             steps{
