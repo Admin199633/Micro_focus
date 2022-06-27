@@ -76,6 +76,7 @@ pipeline {
 		            bat 'echo %IMAGE_TAG%'
 		            bat 'echo ${BUILD_NUMBER}'
 		            bat 'echo %{BUILD_NUMBER}%'	
+	    }
          }
 	stage ('Deploy&Operate HM'){
             steps{
@@ -108,4 +109,3 @@ pipeline {
 	    }
     }
   }
-
