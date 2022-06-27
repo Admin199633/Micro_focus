@@ -5,7 +5,8 @@
 replicaCount: 5
 
 image:
-  repository: photop/project-3
+  image: 42
+  repository: photop/micro_focus
   pullPolicy: IfNotPresent
   # Overrides the image tag whose default is the chart appVersion.
   tag: ""
