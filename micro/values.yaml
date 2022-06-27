@@ -8,7 +8,7 @@ image:
   repository: photop/micro_focus
   pullPolicy: IfNotPresent
   # Overrides the image tag whose default is the chart appVersion.
-  tag: "{{ .env }}"
+  tag: ".env.IMAGE_TAG"
 
 imagePullSecrets: []
 nameOverride: ""
