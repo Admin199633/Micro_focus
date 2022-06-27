@@ -70,10 +70,7 @@ pipeline {
 	stage('set version') { 	
             steps {	
                 bat "echo image_tag=${BUILD_NUMBER} > .env" 
-		bat 'set image_tag=${BUILD_NUMBER}'
 		bat 'more .env'
-		bat 'echo .env'
-	
 	    }
          }
 	stage ('Deploy&Operate HM'){
