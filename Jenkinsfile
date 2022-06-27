@@ -74,7 +74,7 @@ pipeline {
 		            bat "echo tttttttttttttttttttt"
 		            bat 'echo .env'
 		            bat 'echo %IMAGE_TAG%'
-		            bat '${BUILD_NUMBER}'
+		            bat 'echo ${BUILD_NUMBER}'
 		            bat 'echo %{BUILD_NUMBER}%'	
 	    }
          }
