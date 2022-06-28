@@ -67,30 +67,30 @@ pipeline {
             }
          }     
       }
-	stage('set version') { 	
-            steps {	
-                bat "echo image_tag=${BUILD_NUMBER} > .env" 
-		bat 'more .env'
-	    }
-         }
-	stage ('Deploy&Operate HM'){
-            steps{
-                script{
-		    bat 'minikube start'
-		    bat 'kubectl create deployment %BUILD_NUMBER% --image="photop/micro_focus:%BUILD_NUMBER%"'
-		    bat 'helm install  test-%BUILD_NUMBER% ./micro --set image.tag=%BUILD_NUMBER%'
-		    bat 'helm repo update'
-		    bat '/min kubectl port-forward svc/test-%BUILD_NUMBER%-lior 5500:5500'
-		    }  
-                }
-            }
-	stage ('K8S_backend_testing.py'){
-	    steps{
-                script{
-		    bat 'python K8S_backend_testing.py'
-		    bat 'echo succes K8S_backend_testing.py'
-		   }
-                }
-	    }
+// 	stage('set version') { 	
+//             steps {	
+//                 bat "echo image_tag=${BUILD_NUMBER} > .env" 
+// 		bat 'more .env'
+// 	    }
+//          }
+// 	stage ('Deploy&Operate HM'){
+//             steps{
+//                 script{
+// 		    bat 'minikube start'
+// 		    bat 'kubectl create deployment %BUILD_NUMBER% --image="photop/micro_focus:%BUILD_NUMBER%"'
+// 		    bat 'helm install  test-%BUILD_NUMBER% ./micro --set image.tag=%BUILD_NUMBER%'
+// 		    bat 'helm repo update'
+// 		    bat '/min kubectl port-forward svc/test-%BUILD_NUMBER%-lior 5500:5500'
+// 		    }  
+//                 }
+//             }
+// 	stage ('K8S_backend_testing.py'){
+// 	    steps{
+//                 script{
+// 		    bat 'python K8S_backend_testing.py'
+// 		    bat 'echo succes K8S_backend_testing.py'
+// 		   }
+//                 }
+// 	    }
         }
     }
