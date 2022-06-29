@@ -1,0 +1,8 @@
+version: '3'
+services:
+  project:
+    build: .
+    image: photop/micro_focus:${IMAGE_TAG}
+    ports:
+      - "5000:5000"
+   
