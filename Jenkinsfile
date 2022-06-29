@@ -66,6 +66,7 @@ pipeline {
 	       }
             }
          } 
+	}
 	stage('Docker_Backend_testing') {
             steps {
                 script {
