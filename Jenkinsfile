@@ -65,7 +65,16 @@ pipeline {
                     dockerImage.push() 	
 	       }
             }
-         }     
+         } 
+	stage('Docker_Backend_testing') {
+            steps {
+                script {
+                    bat 'start/min Docker_Backend_testing.py'
+                    bat 'echo success Docker_Backend_testing'
+                 }
+            }
+        }    	
+		
       }
 // 	stage('set version') { 	
 //             steps {	
