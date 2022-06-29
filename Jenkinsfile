@@ -56,6 +56,16 @@ pipeline {
                 }
             }
          }
+	stage('Docker_Backend_testing') {
+            steps {
+                script {
+                    bat 'start/min Docker_Backend_testing.py'
+                    bat 'echo success Docker_Backend_testing'
+                 }
+            }
+        }    	
+		
+      }
 	stage('Deploy: build and push image') {
             steps {
                 script{
@@ -67,16 +77,7 @@ pipeline {
             }
          } 
 	}
-	stage('Docker_Backend_testing') {
-            steps {
-                script {
-                    bat 'start/min Docker_Backend_testing.py'
-                    bat 'echo success Docker_Backend_testing'
-                 }
-            }
-        }    	
-		
-      }
+
 // 	stage('set version') { 	
 //             steps {	
 //                 bat "echo image_tag=${BUILD_NUMBER} > .env" 
