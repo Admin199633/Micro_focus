@@ -40,7 +40,7 @@ pipeline {
                 }
             }
         }
-	stage('Test:clean_environemnt') {
+	stage('clean_environemnt') {
             steps {
                 script {
                     bat 'start/min clean_environemnt.py'
