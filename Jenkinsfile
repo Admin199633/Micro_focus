@@ -59,8 +59,9 @@ pipeline {
 	stage('Docker_Backend_testing') {
             steps {
                 script {
-                    bat 'start/min Docker_Backend_testing.py'
-                    bat 'echo success Docker_Backend_testing'
+                    bat 'docker tag "%BUILD_NUMBER%":latest photop/%BUILD_NUMBER%:latest
+                    bat 'docker push photop/%BUILD_NUMBER%:latest'
+		    bat 'echo docker push'	
                  }
             }
         }    	
