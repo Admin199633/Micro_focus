@@ -64,19 +64,19 @@ pipeline {
                  }
             }
         }    	
-		
-      }
-	stage('Deploy: build and push image') {
-            steps {
-                script{
-                    dockerImage = docker.build registry + ":$BUILD_NUMBER"
-		    bat 'echo success Build'
-                    docker.withRegistry('', registryCredential) {	
-                    dockerImage.push() 	
-	       }
-            }
-         } 
-	}
+    }	
+}
+// 	stage('Deploy: build and push image') {
+//             steps {
+//                 script{
+//                     dockerImage = docker.build registry + ":$BUILD_NUMBER"
+// 		    bat 'echo success Build'
+//                     docker.withRegistry('', registryCredential) {	
+//                     dockerImage.push() 	
+// 	       }
+//             }
+//          } 
+// }
 
 // 	stage('set version') { 	
 //             steps {	
